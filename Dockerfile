@@ -8,4 +8,4 @@ RUN apk update && \
     rclone version
 
 # Install qbittorrent-api using pip
-RUN pip3 install qbittorrent-api
+RUN pip3 install qbittorrent-api --break-system-packages
