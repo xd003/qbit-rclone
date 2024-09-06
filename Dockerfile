@@ -3,6 +3,6 @@ FROM linuxserver/qbittorrent:latest
 
 # Install dependencies and rclone using the official install script
 RUN apk update && \
-    apk add --no-cache curl bash && \
+    apk add --no-cache curl bash unzip && \
     curl https://rclone.org/install.sh | bash && \
     rclone version
