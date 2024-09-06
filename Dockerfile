@@ -2,7 +2,6 @@
 FROM linuxserver/qbittorrent
 
 # Install rclone
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl https://rclone.org/install.sh | bash && \
-    apt-get clean
+RUN apk update && \
+    apk add --no-cache curl && \
+    curl https://rclone.org/install.sh | bash
