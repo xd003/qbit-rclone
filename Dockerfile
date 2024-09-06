@@ -1,12 +1,12 @@
 # Use linuxserver/qbittorrent as the base image
-FROM linuxserver/qbittorrent
+FROM linuxserver/qbittorrent:latest
 
-# Install rclone
+# Install dependencies and rclone
 RUN apk update && \
-    apk add --no-cache curl tar bash && \
-    curl -O https://downloads.rclone.org/rclone-current-linux-amd64.tar.gz && \
-    tar xzf rclone-current-linux-amd64.tar.gz && \
+    apk add --no-cache curl unzip bash && \
+    curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
+    unzip rclone-current-linux-amd64.zip && \
     mv rclone-*-linux-amd64/rclone /usr/bin/rclone && \
     chmod 755 /usr/bin/rclone && \
     rclone version && \
-    rm -r rclone-*-linux-amd64 rclone-current-linux-amd64.tar.gz
+    rm -r rclone-*-linux-amd64 rclone-current-linux-amd64.zip
